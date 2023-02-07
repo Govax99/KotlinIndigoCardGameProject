@@ -1,0 +1,8 @@
+type: framework
+content:
+- Card deck symbols
+- Virtual card deck
+- The game is started
+- The game logic
+- Player VS Computer
+current_task: 4

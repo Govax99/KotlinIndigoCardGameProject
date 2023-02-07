@@ -1,0 +1,141 @@
+<h5 id="description">Description</h5>
+<p>In this stage, we will create a virtual card deck.</p>
+<p>Provide the following operations to the card deck:</p>
+<ul>
+<li>Get the top cards from the deck and print them. Remove these cards from the deck;</li>
+<li>Shuffle the deck;</li>
+<li>Reset the deck (deal a new deck of 52 cards).</li>
+</ul>
+<p>In this stage, we will also create a simple menu to test our virtual card deck.</p>
+<h5 id="objectives">Objectives</h5>
+<p>Print the message: <code class="java">Choose an action (reset, shuffle, get, exit):</code>. Users can choose one of the available options <code class="java">reset</code>, <code class="java">shuffle</code>, <code class="java">get</code>, <code class="java">exit</code>, and press enter. In case users enter anything else, print the message <code class="java">Wrong action.</code> and ask users once again (Example 4).</p>
+<p>If <code class="java">reset</code>:</p>
+<ul>
+<li>Reset the deck to the original 52 cards;</li>
+<li>Print the message <code class="java">Card deck is reset.</code>;</li>
+<li>Prompt for new action.</li>
+</ul>
+<p>If <code class="java">shuffle</code>:</p>
+<ul>
+<li>Change the order of the remaining cards in the deck;</li>
+<li>Print the message <code class="java">Card deck is shuffled.</code>;</li>
+<li>Prompt for new action.</li>
+</ul>
+<p>If <code class="java">get</code>:</p>
+<ul>
+<li>Ask for the number of cards to be taken from the top of the deck with the prompt <code class="java">Number of cards:</code></li>
+<li>Users should input a number between <code class="java">1</code> and <code class="java">52</code>. Otherwise, for any number outside this range or for any non-number input, print <code class="java">Invalid number of cards.</code> (Example 2);</li>
+<li>These cards are to be removed from the top of the deck and printed divided by one space (<code class="java">6♦ 3♦ 8♦ 4♠ 9♦</code>). If the number of cards is larger than the number of the remaining cards in the deck, print <code class="java">The remaining cards are insufficient to meet the request.</code> (Example 3);</li>
+<li>Prompt for new action.</li>
+</ul>
+<p>If <code class="java">exit</code>:</p>
+<ul>
+<li>Print <code class="java">Bye</code>;</li>
+<li>Terminate the program.</li>
+</ul>
+<h5 id="examples">Examples</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+<p><strong>Example 1:</strong> <em>standard execution</em></p>
+<pre><code class="language-no-highlight">Choose an action (reset, shuffle, get, exit):
+&gt; reset
+Card deck is reset.
+Choose an action (reset, shuffle, get, exit):
+&gt; shuffle
+Card deck is shuffled.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 10
+2♥ A♦ 8♠ 2♣ Q♠ 8♣ 5♥ 8♥ K♠ J♣
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 6
+J♦ J♠ 3♣ Q♣ 10♠ 5♦
+Choose an action (reset, shuffle, get, exit):
+&gt; reset
+Card deck is reset.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 52
+K♣ Q♣ J♣ 10♣ 9♣ 8♣ 7♣ 6♣ 5♣ 4♣ 3♣ 2♣ A♣ K♦ Q♦ J♦ 10♦ 9♦ 8♦ 7♦ 6♦ 5♦ 4♦ 3♦ 2♦ A♦ K♥ Q♥ J♥ 10♥ 9♥ 8♥ 7♥ 6♥ 5♥ 4♥ 3♥ 2♥ A♥ K♠ Q♠ J♠ 10♠ 9♠ 8♠ 7♠ 6♠ 5♠ 4♠ 3♠ 2♠ A♠
+Choose an action (reset, shuffle, get, exit):
+&gt; reset
+Card deck is reset.
+Choose an action (reset, shuffle, get, exit):
+&gt; shuffle
+Card deck is shuffled.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 52
+5♥ K♣ 4♣ Q♣ 6♣ J♣ 7♦ J♥ 2♣ 7♠ 8♦ 6♥ 9♥ 7♣ 10♥ 7♥ 5♦ 10♦ 6♦ K♠ 5♠ K♥ 6♠ A♣ 3♥ J♠ 2♦ 3♦ 8♠ 4♦ 5♣ 3♠ 9♠ 8♥ J♦ Q♦ Q♥ 4♥ 10♠ K♦ Q♠ 9♦ 9♣ A♦ 4♠ 2♥ 10♣ 8♣ A♥ 2♠ 3♣ A♠
+Choose an action (reset, shuffle, get, exit):
+&gt; exit
+Bye</code></pre>
+<p><strong>Example 2:</strong> i<em>nvalid number of cards</em></p>
+<pre><code class="language-no-highlight">Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 0
+Invalid number of cards.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 53
+Invalid number of cards.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; one
+Invalid number of cards.
+Choose an action (reset, shuffle, get, exit):
+&gt; exit
+Bye</code></pre>
+<p><strong>Example 3:</strong> i<em>nsufficient cards</em></p>
+<pre><code class="language-no-highlight">Choose an action (reset, shuffle, get, exit):
+&gt; reset
+Card deck is reset.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 10
+K♣ Q♣ J♣ 10♣ 9♣ 8♣ 7♣ 6♣ 5♣ 4♣
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 43
+The remaining cards are insufficient to meet the request.
+Choose an action (reset, shuffle, get, exit):
+&gt; reset
+Card deck is reset.
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 52
+K♣ Q♣ J♣ 10♣ 9♣ 8♣ 7♣ 6♣ 5♣ 4♣ 3♣ 2♣ A♣ K♦ Q♦ J♦ 10♦ 9♦ 8♦ 7♦ 6♦ 5♦ 4♦ 3♦ 2♦ A♦ K♥ Q♥ J♥ 10♥ 9♥ 8♥ 7♥ 6♥ 5♥ 4♥ 3♥ 2♥ A♥ K♠ Q♠ J♠ 10♠ 9♠ 8♠ 7♠ 6♠ 5♠ 4♠ 3♠ 2♠ A♠
+Choose an action (reset, shuffle, get, exit):
+&gt; get
+Number of cards:
+&gt; 1
+The remaining cards are insufficient to meet the request.
+Choose an action (reset, shuffle, get, exit):
+&gt; exit
+Bye</code></pre>
+<p><strong>Example 4:</strong> w<em>rong actions</em></p>
+<pre><code class="language-no-highlight">Choose an action (reset, shuffle, get, exit):
+&gt; card
+Wrong action.
+Choose an action (reset, shuffle, get, exit):
+&gt; action
+Wrong action.
+Choose an action (reset, shuffle, get, exit):
+&gt; look card
+Wrong action.
+Choose an action (reset, shuffle, get, exit):
+&gt; deck
+Wrong action.
+Choose an action (reset, shuffle, get, exit):
+&gt; exit
+Bye</code></pre>

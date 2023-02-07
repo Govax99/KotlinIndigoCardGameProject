@@ -1,0 +1,125 @@
+<h5 id="description">Description</h5>
+<p>It is time to make the computer smarter. Until now, the computer played a random card, but now it will follow a certain strategy.</p>
+<p>For testing purposes, print the computer cards in hand before the computer chooses a card.</p>
+<p>From now on, we will introduce the term <strong>candidate cards</strong>. They are the cards in hand that can win the cards on the table.</p>
+<p>The strategy is as follows:</p>
+<p>1) If there is only one card in hand, put it on the table (Example 2);</p>
+<p>2) If there is only one candidate card, put it on the table (Example 3);</p>
+<p>3) If there are no cards on the table:</p>
+<ul>
+<li>If there are cards in hand with the same suit, throw one of them at random (Example 4). For example, if the cards in hand are <code class="java">7♥ 9♥ 8♣ A♠ 3♦ 7♦ Q♥</code> (multiple <code class="java">♥</code>, and <code class="java">♦</code> suits), the computer will play one card at random.</li>
+<li>If there are no cards in hand with the same suit, but there are cards with the same rank (this situation occurs only when there are 4 or fewer cards in hand), then throw one of them at random (Example 5). For example, if the cards in hand are <code class="java">7♦ 7♥ 4♠ K♣</code>, throw one of <code class="java">7♦ 7♥</code> at random.</li>
+<li>If there are no cards in hand with the same suit or rank, throw any card at random. For example, if the cards in hand are <code class="java">9♥ 8♣ A♠ 3♦</code>, throw any of them at random.</li>
+</ul>
+<p>4) If there are cards on the table but no candidate cards, use the same tactics as in step 3. That is:</p>
+<ul>
+<li>If there are cards in hand with the same suit, throw one of them at random (Example 6). For example, if the top card on the table is <code class="java">A♦</code>, and the cards in hand are <code class="java">6♣ Q♥ 8♣ J♠ 7♣</code> (multiple <code class="java">♣</code> suit), the computer will place any of <code class="java">6♣ 8♣ 7♣</code> at random.</li>
+<li>If there are no cards in hand with the same suit, but there are cards with the same rank (this may occur when there are 3 or fewer cards in hand), throw one of them at random (Example 7). For example, if the top card on the table is <code class="java">A♦</code> and the cards in hand are <code class="java">J♠ Q♥ J♣</code>, put one of <code class="java">J♠ J♣</code> at random.</li>
+<li>If there are no cards in hand with the same suit or rank, then put any card at random. For example, if the top card on the table is <code class="java">A♦</code>, and the cards in hand are <code class="java">J♠ Q♥ K♣</code>, throw any of them at random.</li>
+</ul>
+<p>5) If there are two or more candidate cards:</p>
+<ul>
+<li>If there are 2 or more candidate cards with the same suit as the top card on the table, throw one of them at random (Example 8). For example, if the top card on the table is <code class="java">5♥</code>, and the cards in hand are <code class="java">6♥ 8♣ 5♠ 7♦ 7♥</code>, then the candidate cards are <code class="java">6♥ 7♥ 5♠</code>. There are 2 candidate cards with the same suit as the top card on the table, <code class="java">6♥ 7♥</code>. Place any at random.</li>
+<li>If the above isn't applicable, but there are 2 or more candidate cards with the same rank as the top card on the table, throw one of them at random (example 9). For example, if the top card on the table is <code class="java">J♥</code>, and the cards in hand are <code class="java">3♥ J♣ J♠ 6♦</code>, then the candidate cards are <code class="java">3♥ J♣ J♠</code>. In this case, there are no 2 or more candidate cards with the same suit, but there are 2 candidate cards with the same rank as the top card on the table that are <code class="java">J♣ J♠</code>. Put any at random.</li>
+<li>If nothing of the above is applicable, then throw any of the candidate cards at random.</li>
+</ul>
+<p>The strategy above can be improved. Moreover, the computer can play even better if it keeps track of the cards that have been played. However, our goal isn't a complex algorithm for the computer, but to learn how to apply the strategy.</p>
+<h5 id="objectives">Objectives</h5>
+<p>Implement the strategy above.</p>
+<p>For testing purposes, print the computer cards in hand. Every time the computer plays, print an extra line. It should contain the computer cards in hand separated by one space, just before the computer plays its card (Example 1):</p>
+<pre><code class="language-no-highlight">4 cards on the table, and the top card is A♣
+6♣ 8♣ Q♦ 10♦ Q♥ 4♠
+Computer plays 6♣</code></pre>
+<h5 id="examples">Examples</h5>
+<p>The greater-than symbol followed by a space (<code class="java">&gt; </code>) represents the user input. Note that it's not part of the input.</p>
+<p><strong>Example 1:</strong> <em>a new line with computer's cards in hand</em></p>
+<pre><code class="language-no-highlight">Indigo Card Game
+Play first?
+no
+Initial cards on the table: 6♣ 7♥ 3♦ 4♥
+
+4 cards on the table, and the top card is 4♥
+8♣ 3♠ 8♥ K♥ 2♦ K♦
+Computer plays 8♥
+Computer wins cards
+Score: Player 0 - Computer 0
+Cards: Player 0 - Computer 5
+
+No cards on the table
+Cards in hand: 1)J♦ 2)4♠ 3)J♣ 4)A♦ 5)5♠ 6)Q♦
+Choose a card to play (1-6):
+exit
+Game Over</code></pre>
+<p><strong>Example 2:</strong> <em>one card in hand</em></p>
+<pre><code class="language-no-highlight">......
+
+1 cards on the table, and the top card is K♣
+8♥
+Computer plays 8♥
+
+......</code></pre>
+<p><strong>Example 3:</strong> <em>only one candidate card</em></p>
+<pre><code class="language-no-highlight">......
+
+3 cards on the table, and the top card is K♥
+K♦ J♠ Q♣
+Computer plays K♦
+Computer wins cards
+Score: Player 3 - Computer 7
+Cards: Player 8 - Computer 15
+
+......</code></pre>
+<p><strong>Example 4:</strong> <em>no cards on the table; various suits</em></p>
+<pre><code class="language-no-highlight">......
+
+No cards on the table
+6♣ K♦ Q♣ 2♥
+Computer plays 6♣
+
+......</code></pre>
+<p><strong>Example 5:</strong> <em>no cards on the table; various ranks (different suits)</em></p>
+<pre><code class="language-no-highlight">......
+
+No cards on the table
+2♥ 3♠ 3♦ 4♣
+Computer plays 3♠
+
+......</code></pre>
+<p><strong>Example 6:</strong> <em>cards on the table, but no candidate card; various suits</em></p>
+<pre><code class="language-no-highlight">......
+
+3 cards on the table, and the top card is 7♣
+Q♦ J♦ 10♠ 2♥
+Computer plays Q♦
+
+......</code></pre>
+<p><strong>Example 7:</strong> <em>cards on the table, but no candidate card; various ranks (different suits)</em></p>
+<pre><code class="language-no-highlight">......
+
+3 cards on the table, and the top card is 8♦
+6♠ J♥ 6♣
+Computer plays 6♠
+
+......</code></pre>
+<p><strong>Example 8:</strong> <em>two or more candidate cards with the same suit</em></p>
+<pre><code class="language-no-highlight">......
+
+1 cards on the table, and the top card is 5♥
+9♦ J♥ J♦ 2♥ 5♠
+Computer plays J♥
+Computer wins cards
+Score: Player 5 - Computer 1
+Cards: Player 12 - Computer 7
+
+......</code></pre>
+<p><strong>Example 9:</strong> <em>two or more candidate cards with the same rank</em></p>
+<pre><code class="language-no-highlight">......
+
+3 cards on the table, and the top card is 5♣
+5♠ 5♥ 9♣ 2♦
+Computer plays 5♥
+Computer wins cards
+Score: Player 0 - Computer 3
+Cards: Player 0 - Computer 9
+
+......</code></pre>
